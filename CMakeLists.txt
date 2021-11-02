@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(
+  CCSDS_TC_SOURCES
+  ccsds-tc.c)
+
+set(
+  CCSDS_TC_HEADERS
+  ccsds-tc.h)
+
+project(ccsds_tc VERSION 0.1)
+
+add_executable(
+  ccsds-tc-test
+  ${CCSDS_TC_SOURCES} 
+  ${CCSDS_TC_HEADERS} test.c)
+
+target_link_libraries(
+  ccsds-tc-test
+  m)
