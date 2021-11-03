@@ -26,9 +26,6 @@
 #include <math.h>
 #include <stdint.h>
 
-#define CCSDS_TC_INT_ARITHMETICS
-#define CCSDS_TC_NO_MAXSTAR
-
 #define CCSDS_TC_MINIMUM_BLOCK_LENGTH 223
 
 #ifdef __GNUC__

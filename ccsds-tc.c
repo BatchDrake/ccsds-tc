@@ -361,7 +361,7 @@ ccsds_tc_bcjr_ctx_set_gamma_bulk(
   for (j = 1; j < self->h; ++j) {
 #pragma GCC unroll 32
     for (i = 0; i < (CCSDS_TC_STATE_NUM << 1); ++i, ++p) {
-      const softbit_t next  = self->S_next[i];
+      const state_t next    = self->S_next[i];
       const softbit_t gstar = 
         (BIT2SOFT(i & 1) / CCSDS_TC_SSQRT) * (L_u[j] / (2 * CCSDS_TC_SSQRT))
         + self->rv[p];
@@ -376,7 +376,7 @@ ccsds_tc_bcjr_ctx_set_gamma_bulk(
   for (j = self->h; j < self->length - 1; ++j) {
 #pragma GCC unroll 32
     for (i = 0; i < (CCSDS_TC_STATE_NUM << 1); ++i, ++p) {
-      const softbit_t next  = self->S_next[i];
+      const state_t next    = self->S_next[i];
       const softbit_t gstar = self->rv[p];
       const unsigned int rev_p = 
         ((j * CCSDS_TC_STATE_NUM + next) << 1) + (self->S_prev[next << 1] != (i >> 1));

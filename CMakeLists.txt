@@ -15,6 +15,19 @@ add_executable(
   ${CCSDS_TC_SOURCES} 
   ${CCSDS_TC_HEADERS} test.c)
 
+add_executable(
+  ccsds-tc-test-fast
+  ${CCSDS_TC_SOURCES} 
+  ${CCSDS_TC_HEADERS} test.c)
+
 target_link_libraries(
   ccsds-tc-test
   m)
+
+target_link_libraries(
+  ccsds-tc-test-fast
+  m)
+
+target_compile_options(
+  ccsds-tc-test-fast PRIVATE 
+  -DCCSDS_TC_INT_ARITHMETICS -DCCSDS_TC_NO_MAXSTAR -O9)
