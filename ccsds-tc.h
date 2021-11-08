@@ -32,6 +32,7 @@
 #  define CCSDS_TC_INLINE static inline __attribute__((always_inline))
 #else
 #  define CCSDS_TC_INLINE static inline
+#  define __restrict
 #endif
 
 #ifdef CCSDS_TC_INT_ARITHMETICS
@@ -182,7 +183,7 @@ bool ccsds_tc_bcjr_ctx_decode(
   const softbit_t *L_u,
   softbit_t *y,
   softbit_t L_c,
-  const int *restrict permute_out);
+  const int *__restrict permute_out);
 
 CCSDS_TC_INLINE void
 ccsds_tc_bcjr_invalidate_cache(ccsds_tc_bcjr_ctx_t *self)
@@ -271,7 +272,7 @@ ccsds_tc_get_intermediate_output(const ccsds_tc_decoder_t *self)
 }
 
 CCSDS_TC_INLINE const softbit_t *
-ccsds_tc_get_output(const ccsds_tc_decoder_t *self)
+ccsds_tc_decoder_get_output(const ccsds_tc_decoder_t *self)
 {
   return self->y2;
 }

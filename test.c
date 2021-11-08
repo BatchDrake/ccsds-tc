@@ -64,7 +64,7 @@ run_benchmark(const softbit_t *u, const float *r, enum ccsds_tc_test_type type)
     case CCSDS_TC_TEST_TYPE_SINGLE_RUN:
       printf("Running one-shot decoding with %d iters\n", params.iters);
       ccsds_tc_decoder_feed_block_float(&decoder, r);
-      y = ccsds_tc_get_output(&decoder);
+      y = ccsds_tc_decoder_get_output(&decoder);
 
       for (i = 0; i < length; ++i) {
         b1 = u[i] > 0;

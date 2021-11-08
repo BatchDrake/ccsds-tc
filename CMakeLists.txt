@@ -31,3 +31,26 @@ target_link_libraries(
 target_compile_options(
   ccsds-tc-test-fast PRIVATE 
   -DCCSDS_TC_INT_ARITHMETICS -DCCSDS_TC_NO_MAXSTAR -O9)
+
+add_executable(
+  ccsds-tool
+  ${CCSDS_TC_SOURCES} 
+  ${CCSDS_TC_HEADERS}
+  ccsds-guess.c
+  ccsds-guess.h
+  ccsds-modem.c
+  ccsds-modem.h
+  ccsds-tool.c
+  correlator.c
+  correlator.h
+  defs.h
+  lfsr.c
+  lfsr.h)
+
+target_link_libraries(
+  ccsds-tool
+  m)
+
+target_compile_options(
+  ccsds-tool PRIVATE 
+  -DCCSDS_TC_NO_MAXSTAR -O9)
