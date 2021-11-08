@@ -17,7 +17,7 @@ This is the typical CMake project, just change to build, run `cmake` and `make`:
 ## Running the project
 The program you may be looking for is `ccsds-tool`. It supports 2 execution modes:
   * **Guess mode**, in which the tool will open an already demodulated baseband signal at the channel's symbol rate and attempt to blindly guess the channel parameters, and
-  * **Decoding mode**, in which you pass the decoder parameters to the decoder in the command line and attempt to decode the input in real time.
+  * **Decoding mode**, in which you pass the decoder parameters to tool in the command line, and it attempts to decode the input in real time.
   
 By default, the tool operates in decoding mode, reading 32-bit complex float samples from the standard input and writing decoded (and CRC-checked) frames
 to the standard output. Samples can be read from a file or a TCP socket as well:
