@@ -171,13 +171,13 @@ main(int argc, char **argv)
   size /= sizeof(float);
 
   map  = mmap(NULL, size * sizeof(float), PROT_READ, MAP_PRIVATE, fileno(fp), 0);
-  if (map == (caddr_t) - 1) {
+  if (map == (void *) - 1) {
     perror("mmap turbosignal");
     exit(EXIT_FAILURE);
   }
 
   map2 = mmap(NULL, size * sizeof(float) / 6, PROT_READ, MAP_PRIVATE, fileno(fp2), 0);
-  if (map == (caddr_t) - 1) {
+  if (map == (void *) - 1) {
     perror("mmap rightsignal");
     exit(EXIT_FAILURE);
   }
