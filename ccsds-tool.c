@@ -251,7 +251,8 @@ run_decoder(const char *argv0, const struct ccsds_tool_options *opt)
   params.iters     = opt->iters;
   params.q_channel = opt->q_channel;
   params.sync_snr  = powf(10, .1 * opt->snr);
-
+  params.rate_inv  = opt->rate_inv;
+  
   fprintf(stderr, "CCSDS tool v" CCSDS_TOOL_VERSION " for the Amateur DSN by EA1IYR\n");
   fprintf(stderr, "(c) 2021 Gonzalo J. Carracedo - https://actinid.org\n");
   fprintf(stderr, "  Code rate:       1/%d\n", opt->rate_inv);
